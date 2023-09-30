@@ -4,7 +4,7 @@ from marshmallow import Schema, fields
 class ItemSchema(Schema):
     id = fields.Str(dumb_only=True)
     name = fields.Str(required=True)
-    price = fields.Str(required=True)
+    price = fields.Float(required=True)
     store_id = fields.Str(required=True)
 
 

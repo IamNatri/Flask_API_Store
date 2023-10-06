@@ -12,4 +12,5 @@ class ItemModel(db.Model):
     )
     # when have a store id that use store class, populates the store variable with store that have the id associate.
     store = db.relationship("StoreModel", back_populates="items")
+    tags = db.relationship("TagModel", back_populates="items", secondary="item_tags_sdt")
 

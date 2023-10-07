@@ -69,6 +69,7 @@ class LinkTagsToItem(MethodView):
 
         return {"message": "Item removed from tag", "item": item, "tag": tag}
 
+
 @blp.route("/tag/<string:tag_id>")
 class Tag(MethodView):
     @blp.response(200, TagSchema)
@@ -91,5 +92,5 @@ class Tag(MethodView):
             db.session.commit()
             return {"message": "Tag deleted."}
 
-    abort(400, message="Could not delete tag. Make sure tag is not associated with any items.")
+        abort(400, message="Could not delete tag. Make sure tag is not associated with any items.")
 

@@ -4,3 +4,7 @@ python-dotenv
 sqlalchemy
 flask-sqlalchemy
 marshmallow~=3.20.1
+flask-jwt-extended
+passlib
+redis
+flask-migrate

@@ -1,6 +1,5 @@
 import os
 
-
 from flask import Flask, jsonify
 from flask_jwt_extended import JWTManager
 from flask_smorest import Api
@@ -8,16 +7,17 @@ from flask_migrate import Migrate
 
 from db import db
 
-
 from resources.item import blp as ItemBlueprint
 from resources.store import blp as StoreBlueprint
 from resources.tag import blp as TagBlueprint
 from resources.user import blp as UserBlueprint
 from utils.redis_helper import RedisClient
+from dotenv import load_dotenv
 
 
 def create_app(db_url=None):
     app = Flask(__name__)
+    load_dotenv()
 
     # Configuração do Redis
     redis_client = RedisClient().get_redis()
@@ -92,7 +92,6 @@ def create_app(db_url=None):
             ),
             401,
         )
-
 
     api.register_blueprint(ItemBlueprint)
     api.register_blueprint(StoreBlueprint)
